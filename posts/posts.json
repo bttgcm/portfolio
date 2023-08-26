@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/springs/",
+    "title": "Cost benefit analysis of spring revival",
+    "description": {},
+    "author": [
+      {
+        "name": "Giacomo Butte",
+        "url": "https://giacomobutte.com"
+      }
+    ],
+    "date": "2023-08-01",
+    "categories": [],
+    "contents": "\r\nFor the completion of a MSc in Sustainable Mountain Development at Perth UHI I am doing a research at ICIMOD on cost-benefit analysis for spring revival.\r\nSee the documentation on github\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2023-08-26T16:25:54+05:45",
+    "input_file": {}
+  },
+  {
     "path": "posts/rain/",
     "title": "A time series analysis on precipitation in Phyang",
     "description": {},
@@ -13,7 +30,7 @@
     "categories": [],
     "contents": "\r\n\r\n\r\n\r\nExploratory analysis\r\nData was obtained using Google Earth Engine and taken from the\r\ndataset CHIRPS\r\nPentad. For reference on R command and tools to be used a great\r\nsource is the online book on\r\nforecasting by Rob J Hyndman and George Athanasopoulos.\r\nPlot of monthly precipitation from 1981 to 2021 in Phyang and\r\nhistogram of all monthly rainfall.\r\n\r\n\r\n\r\n\r\nRolling average, sum, median\r\nPlot shows the rolling average, max, median and sum over a period of\r\n36 months. A reduction in precipitation can be observed between\r\n1998-2010.\r\n\r\n\r\n\r\nSub-annual series\r\nRainfall data disaggregated per month showing highest rain in June\r\nand July and lowest in May October and November. Highest variability\r\nacross years in found in March, June, July while lowest in September,\r\nOctober and November. Additionally distribution for the month of\r\nMarch(black line), June (green), and July (red) is shown.\r\n\r\n\r\n\r\n\r\nDecomposition\r\nThe strength of the trend and seasonal measured between 0 and 1,\r\nwhile “1” means there’s very strong of trend and seasonal occurred.\r\n\r\n\r\n  Trend.Strength Seasonal.Strength\r\n1            0.4               0.8\r\n\r\nSeasonality analisys\r\n\r\n\r\nResults of statistical testing\r\nPresence of trend not tested.\r\nEvidence of seasonality: TRUE  (pval: 0)\r\n\r\nResults of statistical testing\r\nPresence of trend not tested.\r\nEvidence of seasonality: TRUE  (pval: 0)\r\n\r\nResults of statistical testing\r\nPresence of trend not tested.\r\nEvidence of seasonality: TRUE  (pval: 0)\r\n\r\n\r\nForecasting\r\nTrain period from 1981 to 12.2015 and test period from 01.2016\r\n\r\n\r\n\r\nData it is checked against stationary state.\r\n\r\n\r\n####################### \r\n# KPSS Unit Root Test # \r\n####################### \r\n\r\nTest is of type: mu with 5 lags. \r\n\r\nValue of test-statistic is: 0.3834 \r\n\r\nCritical value for a significance level of: \r\n                10pct  5pct 2.5pct  1pct\r\ncritical values 0.347 0.463  0.574 0.739\r\n\r\n############################################### \r\n# Augmented Dickey-Fuller Test Unit Root Test # \r\n############################################### \r\n\r\nTest regression none \r\n\r\n\r\nCall:\r\nlm(formula = z.diff ~ z.lag.1 - 1 + z.diff.lag)\r\n\r\nResiduals:\r\n    Min      1Q  Median      3Q     Max \r\n-31.409  -4.913   2.164  10.967  73.397 \r\n\r\nCoefficients:\r\n           Estimate Std. Error t value Pr(>|t|)    \r\nz.lag.1    -0.19147    0.03094  -6.188 1.32e-09 ***\r\nz.diff.lag -0.19143    0.04498  -4.256 2.51e-05 ***\r\n---\r\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\r\n\r\nResidual standard error: 15.7 on 476 degrees of freedom\r\nMultiple R-squared:  0.1507,    Adjusted R-squared:  0.1471 \r\nF-statistic: 42.23 on 2 and 476 DF,  p-value: < 2.2e-16\r\n\r\n\r\nValue of test-statistic is: -6.1878 \r\n\r\nCritical values for test statistics: \r\n      1pct  5pct 10pct\r\ntau1 -2.58 -1.95 -1.62\r\n\r\nUsing 95% as confidence level, the null hypothesis (ho) for both of\r\ntest defined as:\r\nKPSS Test: Data are stationary at 10% confidence (value of 0.3834).\r\nDF Test:\r\nARIMA analysis\r\nUsing different models for ARIMA.\r\n\r\n\r\n     [,1]  [,2] [,3]  [,4]  [,5]  [,6]  [,7]  [,8]  [,9] [,10] [,11]\r\nACF  0.35  0.07 0.03 -0.17 -0.16 -0.03 -0.17 -0.20 -0.02  0.06  0.30\r\nPACF 0.35 -0.06 0.03 -0.21 -0.04  0.04 -0.19 -0.12  0.06  0.07  0.29\r\n     [,12] [,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21]\r\nACF   0.74  0.32  0.05  0.01 -0.18 -0.15   0.0 -0.17 -0.19  0.01\r\nPACF  0.64 -0.05 -0.06 -0.07 -0.08  0.02   0.1 -0.03  0.05  0.08\r\n     [,22] [,23] [,24] [,25] [,26] [,27] [,28] [,29] [,30] [,31]\r\nACF   0.06   0.3  0.71  0.30  0.05 -0.01 -0.20 -0.17 -0.04 -0.18\r\nPACF -0.01   0.1  0.31 -0.07 -0.01 -0.09 -0.08 -0.03 -0.05  0.00\r\n     [,32] [,33] [,34] [,35] [,36] [,37] [,38] [,39] [,40] [,41]\r\nACF  -0.21  0.01  0.05  0.29  0.69  0.29  0.03 -0.01 -0.18 -0.17\r\nPACF -0.03  0.08 -0.03  0.03  0.17 -0.05 -0.05 -0.03  0.02 -0.01\r\n     [,42] [,43] [,44] [,45] [,46] [,47] [,48]\r\nACF  -0.04 -0.16 -0.21 -0.03  0.05  0.29  0.67\r\nPACF  0.02  0.06 -0.03 -0.04  0.00  0.05  0.14\r\n\r\n\r\n    Ljung-Box test\r\n\r\ndata:  Residuals from ARIMA(1,0,1)(0,1,1)[12]\r\nQ* = 29.36, df = 21, p-value = 0.1056\r\n\r\nModel df: 3.   Total lags used: 24\r\n\r\nETS model\r\n\r\n\r\n\r\n    Ljung-Box test\r\n\r\ndata:  Residuals from ETS(M,Ad,M)\r\nQ* = 43.792, df = 7, p-value = 2.345e-07\r\n\r\nModel df: 17.   Total lags used: 24\r\n\r\nForecasting\r\n\r\n\r\n\r\nAccuracy of models\r\n\r\n                    ME     RMSE       MAE        MPE     MAPE\r\nTraining set  0.170763  7.87356  5.388082  -9.139575 35.28552\r\nTest set     -9.964325 10.87446 10.165830 -99.206968 99.81011\r\n                  MASE         ACF1 Theil's U\r\nTraining set 0.8073011  0.063420750        NA\r\nTest set     1.5231554 -0.004907483 0.9583204\r\n                    ME     RMSE     MAE       MPE     MAPE      MASE\r\nTraining set  0.285966  7.61933 5.34607 -13.12624 33.12538 0.8010065\r\nTest set     -8.700370 10.85699 9.13186 -73.04490 74.33643 1.3682347\r\n                   ACF1 Theil's U\r\nTraining set 0.02948987        NA\r\nTest set     0.27990111 0.7923204\r\n\r\n##Forecasting and plot\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/rain/rain_files/figure-html5/unnamed-chunk-4-1.png",
-    "last_modified": "2022-09-02T11:58:18+02:00",
+    "last_modified": "2022-09-02T15:43:18+05:45",
     "input_file": {}
   },
   {
@@ -30,7 +47,7 @@
     "categories": [],
     "contents": "\r\nWith colleagues fro the Water Security Hub we wrote\r\nan article that proposes a framework for organizing data collection for\r\nWater Security. Within the vast spectrum of definitions and concepts\r\nthat already exist, we suggest a methodology to guide practitioners\r\nthrough this complexity.\r\nRead the full\r\narticle.\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/dgs/dgs_01.png",
-    "last_modified": "2023-01-26T03:39:06+01:00",
+    "last_modified": "2023-01-26T08:24:06+05:45",
     "input_file": {}
   },
   {
@@ -47,7 +64,7 @@
     "categories": [],
     "contents": "\r\nI have been exploring about air quality using the Temptop M2000 2nd\r\nGeneration to check air\r\nquality in the office. Additionally, I am trying to learn\r\nObservableHQ to communicate data.\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/airquality/airquality.jpg",
-    "last_modified": "2022-08-27T09:46:36+02:00",
+    "last_modified": "2022-08-27T13:31:36+05:45",
     "input_file": {}
   },
   {
@@ -64,7 +81,7 @@
     "categories": [],
     "contents": "\r\nWhile working in Sudan for ICRC and looking at violents events that\r\nhappened in the last years I created this\r\ninteractive map that allows to get some of the information contained\r\nin the ACLED datasets.\r\n\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2022-09-03T13:19:36+02:00",
+    "last_modified": "2022-09-03T17:04:36+05:45",
     "input_file": {}
   },
   {
@@ -85,7 +102,7 @@
     "categories": [],
     "contents": "\r\nI had the opportunity of being part of risk assessment that used the\r\nQuantitative Microbial Risk Assessment (QMRA) framework. As the name\r\nalready shows, the desire for academic precision creates usability\r\ndifficulties by non academic.\r\n\r\nConsidering that some very interesting tools exist such as Idyll and\r\ncurve note that try provide more interactive ways of engaging with the\r\nreaders, we have set up a 10 minutes explanation of the QMRA framework\r\nusing Idyll. It is still a draft but maybe is able to communicate the\r\ncore idea behind the framework. If you have 10 minutes, take a look. The idea behind\r\nthe presentation is to give a preliminary understanding of the QMRA\r\nprocess to stakeholders that do not have a technical background.\r\nAlong these ideas it is very interesting to read about the idea of\r\nthe active\r\nreader as Bret Victor defines it.\r\n\r\n\r\n\r\n",
     "preview": "posts/idyll/qmra02.jpg",
-    "last_modified": "2022-08-27T09:16:08+02:00",
+    "last_modified": "2022-08-27T13:01:08+05:45",
     "input_file": {}
   },
   {
@@ -102,7 +119,7 @@
     "categories": [],
     "contents": "\r\n Very happy to have published with Charles\r\nNiwagaba and Annika Nordin an article on the risk assessment of\r\nwastewater sludge reuse. What we tried to quantify is the risk that\r\nconsumer and workers would face while using wastewater sludge as a\r\nfertiliser. The numercial models that we built suggest that there is\r\nsignificant risk for both categories but also that other source of\r\nmicrobial contamination exist. We are now working on a policy briefing\r\nthat will give suggestions on how to better address this issue in\r\nUganda.\r\nRead\r\nthe full article or listen to an episode of Paper\r\nto Practice.\r\n\r\n\r\n\r\n",
     "preview": "posts/qmra/journal02.jpg",
-    "last_modified": "2022-08-27T09:26:52+02:00",
+    "last_modified": "2022-08-27T13:11:52+05:45",
     "input_file": {}
   }
 ]
